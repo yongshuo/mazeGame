@@ -142,7 +142,7 @@ function handle_move_down(){
     console.log('row '+(current_row +1));
     console.log('col '+current_col);
     
-    if (current_row >= height || text[(current_row+1) * width + current_col] == 'W'){
+    if (current_row > height || text[(current_row+1) * width + current_col] == 'W'){
     	return;
     }else{
         current_row = current_row + 1;
@@ -170,7 +170,7 @@ function handle_move_right(){
 	var height = 3;
     var text = "WWWEPPPPGWWW";
     
-    if (current_row >= width || text[(current_row) * width + current_col+1] == 'W'){
+    if (current_row > width || text[(current_row) * width + current_col+1] == 'W'){
     	return;
     }else{
         current_col = current_col + 1;
