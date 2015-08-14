@@ -8,10 +8,11 @@ $(document).ready(function(e){
     
 });
 
+
 function load_map(){
-    var text = "WWWEPPPPGWWW";
-    var width = 4;
-	var height = 3;
+    var text = "WWWWWPPPEWWWWWPWPWWWWWWWWPWWWWWPWWWWPWPPWWWWWPPPPPWPWWWWGWWWPWWWWW";
+    var width = 11;
+	var height = 6;
     
     
     for (var i = 0; i < height; i++){
@@ -31,9 +32,9 @@ function load_map(){
 }
 
 function set_player(){
-    var text = "WWWEPPPPGWWW";
-    var width = 4;
-	var height = 3;
+    var text = "WWWWWPPPEWWWWWPWPWWWWWWWWPWWWWWPWWWWPWPPWWWWWPPPPPWPWWWWGWWWPWWWWW";
+    var width = 11;
+	var height = 6;
     
     var row = current_row + 1;
     var col = current_col + 1;
@@ -46,9 +47,9 @@ function set_player(){
 }
 
 function set_vision(){
-	var text = "WWWEPPPPGWWW";
-    var width = 4;
-	var height = 3;
+	var text = "WWWWWPPPEWWWWWPWPWWWWWWWWPWWWWWPWWWWPWPPWWWWWPPPPPWPWWWWGWWWPWWWWW";
+    var width = 11;
+	var height = 6;
     
     //hide vision to all block
 	$('.block').addClass('unvisible');
@@ -60,10 +61,10 @@ function set_vision(){
         	$('div#map').find('.row:nth-child('+(current_row+1)+')').find('div:nth-child('+(i+1)+')').removeClass('unvisible');
             wall_showed_right = true;
         }
-        if (text[current_row * width + i] == 'G' || 
+        if ((text[current_row * width + i] == 'G' || 
             text[current_row * width + i] == 'P' || 
             text[current_row * width + i] == 'E' || 
-            (text[current_row * width + i] == 'W' && wall_showed_right == false)){
+            text[current_row * width + i] == 'W') && wall_showed_right == false){
             
         	$('div#map').find('.row:nth-child('+(current_row+1)+')').find('div:nth-child('+(i+1)+')').removeClass('unvisible');
         }
@@ -76,26 +77,27 @@ function set_vision(){
         	$('div#map').find('.row:nth-child('+(current_row+1)+')').find('div:nth-child('+(i+1)+')').removeClass('unvisible');
             wall_showed_left = true;
         }
-        if (text[current_row * width + i] == 'G' || 
+        if ((text[current_row * width + i] == 'G' || 
             text[current_row * width + i] == 'P' || 
             text[current_row * width + i] == 'E' || 
-            (text[current_row * width + i] == 'W' && wall_showed_left == false)){
+            text[current_row * width + i] == 'W') && wall_showed_left == false){
             
         	$('div#map').find('.row:nth-child('+(current_row+1)+')').find('div:nth-child('+(i+1)+')').removeClass('unvisible');
         }
     }
     
     //check on top of current position
-    var wall_showed_top = false;
+    var wall_showed_top  = false;
+    console.log(wall_showed_top);
     for (var i = current_row; i >= 0; i--){
-    	if (text[i * height + current_col] == 'W' && wall_showed_top == false){
+    	if (text[i * width + current_col] == 'W' && wall_showed_top == false){
         	$('div#map').find('.row:nth-child('+(i+1)+')').find('div:nth-child('+(current_col+1)+')').removeClass('unvisible');
             wall_showed_top = true;
         }
-        if (text[i * height + current_col] == 'G' || 
-            text[i * height + current_col] == 'P' || 
-            text[i * height + current_col] == 'E' || 
-            (text[i * height + current_col] == 'W' && wall_showed_top == false)){
+        if ((text[i * width + current_col] == 'G' || 
+            text[i * width + current_col] == 'P' || 
+            text[i * width + current_col] == 'E' || 
+            text[i * width + current_col] == 'W') && wall_showed_top == false){
             
         	$('div#map').find('.row:nth-child('+(i+1)+')').find('div:nth-child('+(current_col+1)+')').removeClass('unvisible');
         }
@@ -104,14 +106,14 @@ function set_vision(){
      //check on top of current position
     var wall_showed_down = false;
     for (var i = current_row; i < height; i++){
-    	if (text[i * height + current_col] == 'W' && wall_showed_down == false){
+    	if (text[i * width + current_col] == 'W' && wall_showed_down == false){
         	$('div#map').find('.row:nth-child('+(i+1)+')').find('div:nth-child('+(current_col+1)+')').removeClass('unvisible');
             wall_showed_down = true;
         }
-        if (text[i * height + current_col] == 'G' || 
-            text[i * height + current_col] == 'P' || 
-            text[i * height + current_col] == 'E' || 
-            (text[i * height + current_col] == 'W' && wall_showed_down == false)){
+        if ((text[i * width + current_col] == 'G' || 
+            text[i * width + current_col] == 'P' || 
+            text[i * width + current_col] == 'E' || 
+            text[i * width + current_col] == 'W') && wall_showed_down == false){
             
         	$('div#map').find('.row:nth-child('+(i+1)+')').find('div:nth-child('+(current_col+1)+')').removeClass('unvisible');
         }
@@ -119,9 +121,9 @@ function set_vision(){
 }
 
 function handle_move_up(){
-    var text = "WWWEPPPPGWWW";
-    var width = 4;
-	var height = 3;
+    var text = "WWWWWPPPEWWWWWPWPWWWWWWWWPWWWWWPWWWWPWPPWWWWWPPPPPWPWWWWGWWWPWWWWW";
+    var width = 11;
+	var height = 6;
     
     console.log('row '+(current_row -1));
     console.log('col '+current_col);
@@ -136,9 +138,9 @@ function handle_move_up(){
 }
 
 function handle_move_down(){
-    var text = "WWWEPPPPGWWW";
-    var width = 4;
-	var height = 3;
+    var text = "WWWWWPPPEWWWWWPWPWWWWWWWWPWWWWWPWWWWPWPPWWWWWPPPPPWPWWWWGWWWPWWWWW";
+    var width = 11;
+	var height = 6;
     console.log('row '+(current_row +1));
     console.log('col '+current_col);
     
@@ -152,9 +154,9 @@ function handle_move_down(){
     }
 }
 function handle_move_left(){
-    var text = "WWWEPPPPGWWW";
-    var width = 4;
-	var height = 3;
+    var text = "WWWWWPPPEWWWWWPWPWWWWWWWWPWWWWWPWWWWPWPPWWWWWPPPPPWPWWWWGWWWPWWWWW";
+    var width = 11;
+	var height = 6;
     
     if (current_col <= 0  || text[(current_row) * width + current_col-1] == 'W'){
     	return;
@@ -166,9 +168,9 @@ function handle_move_left(){
     }
 }
 function handle_move_right(){
-    var width = 4;
-	var height = 3;
-    var text = "WWWEPPPPGWWW";
+    var width = 11;
+	var height = 6;
+    var text = "WWWWWPPPEWWWWWPWPWWWWWWWWPWWWWWPWWWWPWPPWWWWWPPPPPWPWWWWGWWWPWWWWW";
     
     if (current_row > width || text[(current_row) * width + current_col+1] == 'W'){
     	return;
