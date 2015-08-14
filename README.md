@@ -3,5 +3,10 @@ Currently, I only write how the JavaScript generate map, handle move event, hand
 
 Features:
 
-User is able to login and create map by themselves.
-Ranking module.
+1. User is able to play the game without login/register
+
+2. User can register/login
+
+3. After login, user can create map.
+
+4. System is able to do the ranking for logged user.
