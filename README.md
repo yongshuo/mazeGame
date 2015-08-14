@@ -3,5 +3,5 @@ Currently, I only write how the JavaScript generate map, handle move event, hand
 
 Features:
 
-> User is able to login and create map by themselves.
-> Ranking module.
+User is able to login and create map by themselves.
+Ranking module.
