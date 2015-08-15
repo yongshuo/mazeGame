@@ -23,6 +23,7 @@ urlpatterns = [
     url(r'^update_account/$', 'users.views.update_account'),
     url(r'^map/$', 'maze.views.map'),
     url(r'^get_my_maps_ajax/$', 'maze.views.get_my_maps_ajax'),
+    url(r'^create_map/$', 'maze.views.create_map'),
 ]
 
 if settings.DEBUG == False:

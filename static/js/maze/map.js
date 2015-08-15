@@ -12,7 +12,7 @@ function get_my_maps(){
         },
         success: function(e){
             for (var i = 0; i < e.details.length; i++) {
-                var wrapper = $('<div>',{class: "map_thumbnail"});
+                var wrapper = $('<div>',{class: "col-xs-6 col-md-3 wrapper"});
                 var thumbnail = $('<div>',{class: "thumbnail"});
                 var map = $('<div>', {class: "map_"+e.details[i].map_id})
                 var caption = $('<div>',{class: "caption"});
@@ -23,8 +23,12 @@ function get_my_maps(){
                 thumbnail.append(map).append(caption);
                 wrapper.append(thumbnail);
                 $('div#map_row').append(wrapper);
-                set_map('map_'+e.details[i].map_id, e.details[i].map_text, e.details[i].map_width, e.details[i].map_height);
+                console.log($('.wrapper').width());
                 
+                //calculate the width for each small block
+                var block_width = $('.map_'+e.details[i].map_id).width() / parseInt(e.details[i].map_width);
+                
+                set_map(block_width, 'map_'+e.details[i].map_id, e.details[i].map_text, e.details[i].map_width, e.details[i].map_height);
             }
             
         },
@@ -34,13 +38,14 @@ function get_my_maps(){
     })
 }
 
-function set_map(classname, map_text, map_width, map_height) {
-
+function set_map(size, classname, map_text, map_width, map_height) {
+    
     for (var i = 0; i < map_height; i++){
-        var row = $('<div>',{class: "block_row"});
+        //set each row's height and width
+        var row = $('<div style="height:'+size+'px;width:'+size*map_width+'px;">',{class: "block_row"});
         for(var j = 0; j < map_width; j++){
-            
-            row.append('<div class="block '+map_text[i * map_width + j]+'">');
+            //set the block size
+            row.append('<div style="width:'+size+'px;height:'+size+'px"class="block '+map_text[i * map_width + j]+'">');
         }
         $('div.'+classname).append(row);
     }

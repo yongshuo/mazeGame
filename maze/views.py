@@ -51,4 +51,18 @@ def get_my_maps_ajax(request):
         
     return HttpResponse(json.dumps(return_data), content_type = 'application/json')
         
+def create_map(request):
+    if request.session.has_key('EMAIL') == False:
+        redirect('/login/')
         
+    context = {}
+    
+    context['TAB'] = 'MAZEMAP'
+    context['NAME'] = request.session['NAME']
+    
+    return render_to_response(
+            'maze/create_map.html',
+            context,
+            context_instance = RequestContext(request)
+        )
+    

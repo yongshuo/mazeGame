@@ -1,0 +1,64 @@
+{% extends '_base.html' %}
+
+{% load i18n %}
+{% load static from staticfiles %}
+
+{% block title %}
+    {% trans 'Create Map' %}
+{% endblock %}
+
+{% block pagejs %}
+    <script type="text/javascript" src="{% static 'js/maze/draw_maze.js' %}"></script>
+{% endblock %}
+
+{% block pagecss %}
+    <link rel="stylesheet" href="{% static 'css/maze/map.css' %}" />
+        
+{% endblock %}
+
+{% block main_content %}
+    <div class="row">
+    <div class="col-sm-3 col-md-2 toolbox">
+    <div class="alert alert-info" role="alert">{% trans 'Hold the whitespace key, and hover on the map to draw.' %}</div>
+    <div class="form-group">
+        <div class="radio W">
+            <label><input type="radio" value="W" checked="true" name="brush">{% trans 'Wall' %}</label>
+          </div>
+          <div class="radio G">
+            <label><input type="radio" value="G" name="brush">{% trans 'Entry' %}</label>
+          </div>
+          <div class="radio E">
+            <label><input type="radio" value="E" name="brush">{% trans 'Exit' %}</label>
+          </div>
+          <div class="radio P">
+            <label><input type="radio" value="P" name="brush">{% trans 'Path' %}</label>
+          </div>
+    </div>
+    
+    <div class="form-group">
+        <label for="map_title">{% trans 'Title' %}:</label>
+        <input type="text" class="form-control" id="map_title" placeholder="{% trans 'Title' %}">
+      </div>
+      <div class="form-group">
+        <label for="map_width">{% trans 'Width' %}:</label>
+        <input type="number" class="form-control" id="map_width" onchange="draw_map();" placeholder="{% trans 'Width' %}">
+      </div>
+      <div class="form-group">
+        <label for="map_height">{% trans 'Height' %}:</label>
+        <input type="number" class="form-control" id="map_height" onchange="draw_map();" placeholder="{% trans 'Height' %}">
+      </div>
+      <div class="form-group">
+        <label for="map_description">{% trans 'Description' %}:</label>
+        <textarea class="form-control" rows="4" id="map_description"></textarea>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-success"><span class="glyphicon glyphicon-pencil"></span>&nbsp;{% trans 'Save Map' %}</button>
+      </div>
+    </div>
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 mapzone">
+        <div id="create_map">
+            
+        </div>
+    </div>
+    </div>
+{% endblock %}

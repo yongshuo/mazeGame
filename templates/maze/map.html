@@ -3,7 +3,7 @@
 {% load static from staticfiles %}
 
 {% block title %}
-    {% trans 'Account' %}
+    {% trans 'Map' %}
 {% endblock %}
 
 {% block pagejs %}
@@ -16,6 +16,7 @@
 {% endblock %}
 
 {% block main_content %}
+    <a href="/create_map/" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span>&nbsp;{% trans 'Create A Map' %}</a>
     <div class="row" id="map_row">
     </div>
 {% endblock %}
