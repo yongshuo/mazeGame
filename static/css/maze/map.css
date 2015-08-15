@@ -1,0 +1,45 @@
+div.map_thumbnail{
+    float:left;
+    margin:10px;
+    
+}
+
+div.block_row{
+    margin:0px;
+    padding:0px;
+    height:15px;
+}
+
+div.block{
+    width:15px;
+    height:15px;
+    display:inline-block;
+}
+
+div.W{
+    background-color:#593E1A;
+}
+
+div.E{
+    background-color:#01DF01;
+}
+
+div.P{
+    background-color:#01DF01;
+}
+
+div.G{
+    background-color:#01DF01;
+}
+
+div.object{
+    background-color:red;
+    z-index:100;
+    width:30px;
+    height:30px;
+    margin:10px;
+}
+
+.unvisible{
+    background-color:#A9A9A9 !important;
+}

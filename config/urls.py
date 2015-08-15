@@ -21,6 +21,8 @@ urlpatterns = [
     url(r'^account/$', 'users.views.account'),
     url(r'^logout/$', 'users.views.logout'),
     url(r'^update_account/$', 'users.views.update_account'),
+    url(r'^map/$', 'maze.views.map'),
+    url(r'^get_my_maps_ajax/$', 'maze.views.get_my_maps_ajax'),
 ]
 
 if settings.DEBUG == False:

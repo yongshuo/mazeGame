@@ -12,7 +12,7 @@ $(document).ready(function(e){
 function load_map(){
     var text = "WWWWWPPPEWWWWWPWPWWWWWWWWPWWWWWPWWWWPWPPWWWWWPPPPPWPWWWWGWWWPWWWWW";
     var width = 11;
-	var height = 6;
+    var height = 6;
     
     
     for (var i = 0; i < height; i++){

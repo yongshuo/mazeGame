@@ -1,0 +1,21 @@
+{% extends '_base.html' %}
+{% load i18n %}
+{% load static from staticfiles %}
+
+{% block title %}
+    {% trans 'Account' %}
+{% endblock %}
+
+{% block pagejs %}
+    <script type="text/javascript" src="{% static 'js/maze/map.js' %}"></script>
+{% endblock %}
+
+{% block pagecss %}
+    <link rel="stylesheet" href="{% static 'css/maze/map.css' %}" />
+        
+{% endblock %}
+
+{% block main_content %}
+    <div class="row" id="map_row">
+    </div>
+{% endblock %}
