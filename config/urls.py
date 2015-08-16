@@ -24,6 +24,11 @@ urlpatterns = [
     url(r'^map/$', 'maze.views.map'),
     url(r'^get_my_maps_ajax/$', 'maze.views.get_my_maps_ajax'),
     url(r'^create_map/$', 'maze.views.create_map'),
+    url(r'^save_map_ajax/$', 'maze.views.save_map_ajax'),
+    url(r'^delete_map_ajax/$', 'maze.views.delete_map_ajax'),
+    url(r'^edit_map/$', 'maze.views.edit_map'),
+    url(r'^mazegame/$', 'maze.views.mazegame'),
+    url(r'^load_all_maps/$', 'maze.views.load_all_maps'),
 ]
 
 if settings.DEBUG == False:

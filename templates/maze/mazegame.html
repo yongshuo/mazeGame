@@ -1,16 +1,17 @@
 {% extends '_base.html' %}
+
 {% load i18n %}
 {% load static from staticfiles %}
 
 {% block title %}
-    {% trans 'Map' %}
+    {% trans 'Maze Game' %}
 {% endblock %}
 
 {% block pagejs %}
     <script type="text/javascript" src="{% static 'js/maze/map.js' %}"></script>
     <script type="text/javascript">
         $(document).ready(function(e){
-            get_my_maps();
+            load_all_maps();
         });
     </script>
 {% endblock %}
@@ -21,13 +22,10 @@
 {% endblock %}
 
 {% block main_content %}
-    <a href="/create_map/" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span>&nbsp;{% trans 'Create A Map' %}</a>
-    <br/>
+    
     <div class="alert-success" role="alert" id="load_success" style="display: none;">{% trans 'Map has been loaded successful!' %}</div>
     <div class="alert-danger" role="alert" id="load_error" style="display: none;">{% trans 'Error in loading map' %}</div>
     <div class="alert-info" role="alert" id="load_info" style="display: none;">{% trans 'Map is Loading...' %}</div>
-    <div class="alert-danger" role="alert" id="delete_error" style="display: none;">{% trans 'Error in deleting map' %}</div>
-    <div class="alert-info" role="alert" id="delete_info" style="display: none;">{% trans 'Deleting Map...' %}</div>
     
     <div class="row" id="map_row">
     </div>

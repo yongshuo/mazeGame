@@ -10,7 +10,9 @@
         bottom: 0px;
     }
     div.mapzone{
-        padding-left: 50px;    
+        padding-left: 50px;
+        overflow-x: auto;
+        overflow-y:auto;
     }
 }
 
