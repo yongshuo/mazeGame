@@ -12,9 +12,9 @@ urlpatterns = [
     url(r'^jsi8n/$', 'django.views.i18n.javascript_catalog', js_info_dict),
     
     url(r'^change_language_ajax/$', 'users.views.change_language_ajax'),
-    url(r'^$', 'users.views.index'),
+    url(r'^$', 'maze.views.mazegame'),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^home/$', 'users.views.index'),
+    url(r'^home/$', 'maze.views.mazegame'),
     url(r'^register/$', 'users.views.register'),
     url(r'^register_action/$', 'users.views.register_action'),
     url(r'^login/$', 'users.views.login'),
