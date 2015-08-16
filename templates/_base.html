@@ -64,8 +64,14 @@
                             <li><a href="#">{% trans 'Welcome Guest' %}</a></li>
                             <li><a href="/login/">{% trans 'Login' %}</a></li>
                             <li><a href="/register/">{% trans 'Register' %}</a></li>
-                            
                         {% endif %}
+			<li {% if request.LANGUAGE_CODE != 'zh-hans'%} class="active"{% endif %}>
+			    <a href="javascript:change_language('en')">EN</a>
+			</li>
+			<li {% if request.LANGUAGE_CODE == 'zh-hans'%} class="active"{% endif %}>
+			    <a href="javascript:change_language('zh-hans')">中文</a>
+			</li>
+			    
                     </ul>
                 </div>
             </div>
@@ -83,25 +89,25 @@
                                 &nbsp;{% trans 'MazeGame' %}
                             </a>
                         </li>
-                        
-                        <li {% if TAB == 'MAZEMAP' %}class="active" {% endif %}>
-                            <a href="/map/"><span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span>
-                                &nbsp;{% trans 'Map' %}
-                            </a>
-                        </li>
-                        
+                        {% if NAME %}
+			    <li {% if TAB == 'MAZEMAP' %}class="active" {% endif %}>
+				<a href="/map/"><span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span>
+				    &nbsp;{% trans 'Map' %}
+				</a>
+			    </li>
+			{% endif %}
                         <li {% if TAB == 'ACCOUNT' %}class="active" {% endif %}>
                             <a href="/account/"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
                                 &nbsp;{% trans 'Account' %}
                             </a>
                         </li>
-                        
+                        <!--
                         <li {% if TAB == 'RANK' %}class="active" {% endif %}>
                             <a href="/rank/"><span class="glyphicon glyphicon-stats" aria-hidden="true"></span>
                                 &nbsp;{% trans 'Ranking' %}
                             </a>
                         </li>
-                        
+			-->                        
                     </ul>
                     
                 </div>
@@ -114,15 +120,5 @@
             </div>
         </div>
     {% endblock %}
-    <input type="hidden" id="lang_code" value="{{ request.LANGUAGE_CODE }}" />
-    <div id="languageWrapper">
-    <div id="language">
-        <div class="btn-group" role="group">
-            <button type="button" {% if request.LANGUAGE_CODE != 'zh-hans'%} class="btn btn-default active"{% else %}class="btn btn-default"{% endif %} onclick="change_language('en');">EN</button>
-            <button type="button" id="mover" class="btn btn-link"><span class="glyphicon glyphicon-move" aria-hidden="true"></span>&nbsp;</button>
-	    <button type="button" {% if request.LANGUAGE_CODE == 'zh-hans'%} class="btn btn-default active"{% else %}class="btn btn-default"{% endif %} onclick="change_language('zh-hans');">中文</button>
-        </div>
-    </div>
-    </div>
     </body>
 </html>

@@ -180,3 +180,53 @@ def load_all_maps(request):
     return_data['details'] = details
         
     return HttpResponse(json.dumps(return_data), content_type = 'application/json')
+
+def play_game(request):
+    context = {}
+    context['TAB'] = 'MAZEGAME'
+    context['NAME'] = request.session['NAME'] if request.session.has_key('NAME') else ''
+    
+    map_id = request.GET.get('id','')
+    
+    try:
+        m = Map.objects.get(id = int(map_id))
+    except Exception as e:
+        context['Error'] = e.args[0]
+    else:
+        context['map_id'] = str(m.id)
+        context['map_title'] = m.map_title.encode('utf-8')
+        context['map_width'] = str(m.map_width)
+        context['map_height'] = str(m.map_height)
+        context['map_text'] = m.map_text
+        context['map_description'] = m.map_description
+    
+    return render_to_response(
+        'maze/playgame.html',
+        context,
+        context_instance = RequestContext(request)
+    )
+
+def save_game_history_ajax(request):
+    map_id = request.POST.get('map_id','')
+    steps = request.POST.get('steps','')
+    
+    try:
+        entity_login = EntityLogin.objects.get(email = request.session['EMAIL'])
+    except Exception as e:
+        print e
+        return HttpResponse(json.dumps({}), content_type = 'application/json')
+    else:
+        try:
+            maps = Map.objects.get(id = int(map_id))
+        except Exception as e:
+            print e
+            return HttpResponse(json.dumps({}), content_type = 'application/json')
+        else:
+            try:
+                history = GameHistory(player = entity_login, game_map = maps, steps_spend = steps)
+                history.save()
+            except Exception as e:
+                print e
+                return HttpResponse(json.dumps({}), content_type = 'application/json')
+    
+    return HttpResponse(json.dumps({}), content_type = 'application/json')

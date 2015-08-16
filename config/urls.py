@@ -10,7 +10,8 @@ js_info_dict = {
 
 urlpatterns = [
     url(r'^jsi8n/$', 'django.views.i18n.javascript_catalog', js_info_dict),
-
+    
+    url(r'^change_language_ajax/$', 'users.views.change_language_ajax'),
     url(r'^$', 'users.views.index'),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^home/$', 'users.views.index'),
@@ -29,6 +30,8 @@ urlpatterns = [
     url(r'^edit_map/$', 'maze.views.edit_map'),
     url(r'^mazegame/$', 'maze.views.mazegame'),
     url(r'^load_all_maps/$', 'maze.views.load_all_maps'),
+    url(r'^play_game/$', 'maze.views.play_game'),
+    url(r'^save_game_history_ajax/$', 'maze.views.save_game_history_ajax'),
 ]
 
 if settings.DEBUG == False:

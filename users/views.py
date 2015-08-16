@@ -20,6 +20,19 @@ def index(request):
         context_instance = RequestContext(request)
     )
 
+def change_language_ajax(request):
+    
+    lang = request.POST.get('lang','en')
+    
+    translation.activate(lang)
+    request.session[translation.LANGUAGE_SESSION_KEY] = lang
+    
+    request.LANGUAGE_CODE = translation.get_language()
+    
+    data = {}
+    
+    return HttpResponse(json.dumps(data), content_type="application/json")
+
 
 def register(request):
     context = {}

@@ -1,0 +1,52 @@
+{% extends '_base.html' %}
+
+{% load i18n %}
+{% load static from staticfiles %}
+
+{% block title %}
+    {% trans 'Maze Game' %}
+{% endblock %}
+
+{% block pagejs %}
+    <script type="text/javascript" src="{% static 'js/maze/game.js' %}"></script>
+{% endblock %}
+
+{% block pagecss %}
+    <link rel="stylesheet" href="{% static 'css/maze/map.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/maze/game.css' %}" />
+{% endblock %}
+
+{% block main_content %}
+    <input type="hidden" id="map_width" value="{{ map_width }}"/>
+    <input type="hidden" id="map_height" value="{{ map_height }}"/>
+    <input type="hidden" id="map_text" value="{{ map_text }}"/>
+    <input type="hidden" id="map_id" value="{{ map_id }}"/>
+    
+    <div class="row">
+        <div class="col-sm-3 col-md-2 toolbox">
+            <div class="form-group">
+                <label>{% trans 'Defination' %}</label>
+                <div class="G">Entry</div>
+                <div class="W" style="color:white;">Wall</div>
+                <div class="E">Exit</div>
+                <div class="P">Path</div>
+                <div style="background-color:red;">Player</div>
+                <div class="unvisible">Unvisible Area</div>
+            </div>
+            
+            <div class="form-group">
+                <label>{% trans 'Steps' %}</label>
+                <input type="text" readonly="readonly" value="0" class="form-control" id="step_spend" />
+            </div>
+            <div class="from-group">
+                <button class="btn btn-primary" onclick="restart_game();"><span class="glyphicon glyphicon-repeat"></span>&nbsp;{% trans 'Restart' %}</button>
+            </div>
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 mapzone">
+           <div class="alert-success" role="alert" id="win_game" style="display: none;">{% trans 'You win the game!' %}</div>
+           <div id="map"></div>
+        </div>
+    </div>
+     
+    
+{% endblock %}
