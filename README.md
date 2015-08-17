@@ -1,12 +1,14 @@
 # mazeGame
-Currently, I only write how the JavaScript generate map, handle move event, handle the vision.
 
-Features:
+MazeGame is a free web-based mazegame. User is able to play the game without any registration. With registration, user is able to design/create maps by themselves.
 
-1. User is able to play the game without login/register
+Visible Area: visible areas are path + 1 wall in left,right,front, and down path.
 
-2. User can register/login
+Create Map: When create map, user need to define the entry, exit and and path between entry and exit. Then click on auto-generate button to generate the map.
 
-3. After login, user can create map.
 
-4. System is able to do the ranking for logged user.
+Technical Details:
+
+1. Python2.7 + Django 1.8 - the user, map, game history data management.
+2. Bootstrap 3 - Make the layout responsive.
+3. JQuery, CSS and HTML - Handling the map generation, moving event, etc.
