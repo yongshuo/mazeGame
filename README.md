@@ -2,11 +2,11 @@
 
 MazeGame is a free web-based mazegame. User is able to play the game without any registration. With registration, user is able to design/create maps by themselves.
 
-###Visible Area: 
+####Visible Area: 
 
 visible areas are path + 1 wall in left,right,front, and down path.
 
-###Create Map: 
+####Create Map: 
 
 When create map, user need to define the entry, exit and and path between entry and exit. Then click on auto-generate button to generate the map.
 
