@@ -8,8 +8,8 @@ var steps_spend = 0;
 
 $(document).ready(function(e){
     text = $('#map_text').val();
-    width = $('#map_width option:selected').val();
-    height = $('#map_height option:selected').val();
+    width = $('#map_width').val();
+    height = $('#map_height').val();
     
     window_height = $(window).height() - 100;;
     
