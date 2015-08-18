@@ -10,6 +10,7 @@ visible areas are path + 1 wall in left,right,front, and down path.
 
 When create map, user need to define the entry, exit and and path between entry and exit. Then click on auto-generate button to generate the map.
 
+NOTE: You can hold your whitespace key, and move your month to draw.
 
 ####Technical Details:
 
