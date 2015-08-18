@@ -10,8 +10,8 @@ $(document).ready(function(e){
 });
 
 function load_map(){
-   var width = $('#map_width').val();
-   var height = $('#map_height').val();
+   var width = $('#map_width option:selected').val();
+   var height = $('#map_height option:selected').val();
    var map_text = $('#map_text').val();
    
    $('#create_map').html('');
@@ -51,8 +51,8 @@ function load_map(){
 }
 
 function draw_map() {
-    var width = $('#map_width').val();
-    var height = $('#map_height').val();
+    var width = $('#map_width option:selected').val();
+    var height = $('#map_height option:selected').val();
     $('#create_map').html('');
     
     for (var i = 0; i < parseInt(height); i++){
@@ -133,8 +133,8 @@ function save_map(){
     });
     
     var map_title = $('#map_title').val();
-    var map_width = $('#map_width').val();
-    var map_height = $('#map_height').val();
+    var map_width = $('#map_width option:selected').val();
+    var map_height = $('#map_height option:selected').val();
     var map_description = $('#map_description').val();
     
     $.ajax({
@@ -180,8 +180,8 @@ function update_map(){
     });
     
     var map_title = $('#map_title').val();
-    var map_width = $('#map_width').val();
-    var map_height = $('#map_height').val();
+    var map_width = $('#map_width option:selected').val();
+    var map_height = $('#map_height option:selected').val();
     var map_description = $('#map_description').val();
     var map_id = $('#map_id').val();
     

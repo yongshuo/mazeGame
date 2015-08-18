@@ -47,11 +47,30 @@
       </div>
       <div class="form-group">
         <label for="map_width">{% trans 'Width' %}:</label>
+        <!--
         <input type="number" class="form-control" id="map_width" value="{{ map_width }}" onchange="draw_map();" placeholder="{% trans 'Width' %}">
+        -->
+        <select id="map_width" class="form-control" onchange="draw_map();" value="{{ map_width }}">
+            <option value="0">--</option>
+            <option value="20">20</option>
+            <option value="30">30</option>
+            <option value="40">40</option>
+            <option value="50">50</option>
+        </select>
       </div>
       <div class="form-group">
         <label for="map_height">{% trans 'Height' %}:</label>
+        <!--
         <input type="number" class="form-control" id="map_height" value="{{ map_height }}" onchange="draw_map();" placeholder="{% trans 'Height' %}">
+        -->
+        <select id="map_height" class="form-control" onchange="draw_map();" value="{{ map_height }}">
+            <option value="0">--</option>
+            <option value="20">20</option>
+            <option value="30">30</option>
+            <option value="40">40</option>
+            <option value="50">50</option>
+        </select>
+        
       </div>
       <div class="form-group">
         <label for="map_description">{% trans 'Description' %}:</label>
