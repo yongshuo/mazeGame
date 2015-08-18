@@ -10,6 +10,10 @@ $(document).ready(function(e){
 });
 
 function load_map(){
+
+   $('#map_width').val($('#map_width_input').val());
+   $('#map_height').val($('#map_height_input').val());
+   
    var width = $('#map_width option:selected').val();
    var height = $('#map_height option:selected').val();
    var map_text = $('#map_text').val();
